@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import AllCategories from "../components/AllCategories";
 import listAPI from "../api/listAPI";
 
-function HomePage() {
+function HomePage(props) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     loadAllCategories();
-  }, []);
+  }, [props.username]);
 
   const loadAllCategories = async () => {
     const data = await listAPI.getAllCategories();
